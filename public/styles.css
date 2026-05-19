@@ -1,15 +1,33 @@
+:root {
+  --verde-oscuro: #1b5e20;
+  --verde: #2e7d32;
+  --verde-medio: #43a047;
+  --verde-claro: #a5d6a7;
+  --verde-fondo: #e8f5e9;
+  --verde-suave: #f4faf5;
+  --verde-borde: #c8e6c9;
+  --texto: #1a2e1c;
+  --texto-suave: #4a5f4c;
+  --radio-xl: 24px;
+  --radio-lg: 20px;
+  --radio-md: 16px;
+  --radio-pill: 999px;
+  --sombra: 0 6px 20px rgba(27, 94, 32, 0.1);
+  --sombra-suave: 0 2px 10px rgba(27, 94, 32, 0.08);
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background: #f4f4f4;
-  color: #222222;
+  background: linear-gradient(160deg, #c8e6c9 0%, #e8f5e9 40%, #dcedc8 75%, #a5d6a7 100%);
+  color: var(--texto);
   line-height: 1.5;
 }
 
 header {
-  background: #ffffff;
-  padding: 24px;
-  border-bottom: 1px solid #dddddd;
+  background: var(--verde-suave);
+  padding: 28px 24px 32px;
+  border-bottom: 2px solid var(--verde-borde);
 }
 
 main {
@@ -18,65 +36,124 @@ main {
   padding: 24px;
 }
 
-section {
+/* Tarjeta base: secciones y mensajes */
+section,
+.tarjeta-mensaje {
   background: #ffffff;
-  margin-bottom: 24px;
-  padding: 20px;
-  border: 1px solid #dddddd;
-  border-radius: 8px;
+  border: 2px solid var(--verde-borde);
+  border-radius: var(--radio-xl);
+  box-shadow: var(--sombra-suave);
 }
 
-h1,
-h2,
-h3 {
-  color: #111111;
+section {
+  margin-bottom: 24px;
+  padding: 24px;
+}
+
+/* Títulos redondeados (estilo pastilla) */
+.titulo-principal {
+  margin: 0 0 14px;
+  padding: 18px 28px;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--verde-oscuro);
+  text-align: center;
+  background: linear-gradient(135deg, var(--verde-fondo) 0%, #ffffff 100%);
+  border: 2px solid var(--verde-claro);
+  border-radius: var(--radio-pill);
+  box-shadow: var(--sombra);
+}
+
+.titulo-seccion {
+  margin: 0 0 18px;
+  padding: 14px 22px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  background: linear-gradient(135deg, var(--verde-medio) 0%, var(--verde) 100%);
+  border: none;
+  border-radius: var(--radio-pill);
+  box-shadow: var(--sombra-suave);
+}
+
+section h3,
+.tarjeta-mensaje h3 {
+  margin: 0 0 12px;
+  padding: 10px 16px;
+  font-size: 1.05rem;
+  color: var(--verde-oscuro);
+  background: var(--verde-fondo);
+  border-radius: var(--radio-md);
+  text-align: center;
+}
+
+/* Tablero: rejilla; tarjeta solo cuando aún no hay contenido */
+.tablero {
+  display: grid;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.tablero:not(:has(article)) {
+  padding: 22px;
+  color: var(--texto-suave);
+  text-align: center;
+  background: var(--verde-suave);
+  border: 2px dashed var(--verde-claro);
+  border-radius: var(--radio-xl);
+}
+
+/* Tarjetas dinámicas (mensajes, calendario, resumen) */
+.tarjeta-mensaje {
+  padding: 22px;
+  text-align: left;
+  background: #ffffff;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tarjeta-mensaje:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra);
 }
 
 button {
-  padding: 10px 14px;
-  border: 1px solid #333333;
-  background: #ffffff;
-  color: #111111;
+  padding: 12px 22px;
+  border: 2px solid var(--verde);
+  background: linear-gradient(135deg, #7ee081 0%, #4caf50 100%);
+  color: var(--verde-oscuro);
+  font-weight: 600;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: var(--radio-pill);
+  box-shadow: var(--sombra-suave);
+  transition: background 0.15s ease, transform 0.15s ease;
 }
 
 button:hover {
-  background: #eeeeee;
-}
-
-.tablero {
-  display: grid;
-  gap: 16px;
-  margin-top: 16px;
-}
-
-.tarjeta-mensaje {
-  background: #fafafa;
-  border: 1px solid #dddddd;
-  border-left: 6px solid #555555;
-  padding: 16px;
-  border-radius: 8px;
+  background: linear-gradient(135deg, #a5d6a7 0%, #66bb6a 100%);
+  transform: translateY(-1px);
 }
 
 .etiqueta {
   display: inline-block;
-  padding: 4px 8px;
-  border: 1px solid #cccccc;
-  border-radius: 6px;
-  margin-right: 6px;
-  margin-bottom: 6px;
-  background: #ffffff;
+  padding: 6px 14px;
+  border: 1px solid var(--verde-claro);
+  border-radius: var(--radio-pill);
+  margin-right: 8px;
+  margin-bottom: 8px;
+  background: var(--verde-fondo);
+  color: var(--verde-oscuro);
+  font-size: 0.9rem;
 }
 
 .texto-secundario {
-  color: #444444;
+  color: var(--texto-suave);
   font-size: 0.95rem;
 }
 
 .aviso-seguridad {
-  background: #ffffff;
-  border: 1px solid #cccccc;
-  padding: 12px;
-  border-radius: 8px;
+  background: var(--verde-suave);
+  border: 2px solid var(--verde-borde);
+  padding: 16px;
+  border-radius: var(--radio-lg);
 }
