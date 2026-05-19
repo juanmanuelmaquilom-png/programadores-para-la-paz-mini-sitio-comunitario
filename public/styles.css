@@ -103,6 +103,7 @@ section h3,
   border: 2px dashed var(--verde-claro);
   border-radius: var(--radio-xl);
 }
+/*fin de la seccion de tablero*/
 
 /* Tarjetas dinámicas (mensajes, calendario, resumen) */
 .tarjeta-mensaje {
