@@ -103,3 +103,4 @@ async function cargarResumen() {
     contenedorResumen.textContent = "No fue posible cargar el resumen. Revisa que el servidor esté funcionando."
   }
 }
+
