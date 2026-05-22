@@ -8,9 +8,10 @@
   --verde-borde: #c8e6c9;
   --texto: #1a2e1c;
   --texto-suave: #4a5f4c;
-  --radio-xl: 24px;
-  --radio-lg: 20px;
-  --radio-md: 16px;
+  --radio-xl: 32px;
+  --radio-lg: 28px;
+  --radio-md: 20px;
+  --radio-sm: 14px;
   --radio-pill: 999px;
   --sombra: 0 6px 20px rgba(27, 94, 32, 0.1);
   --sombra-suave: 0 2px 10px rgba(27, 94, 32, 0.08);
@@ -28,6 +29,20 @@ header {
   background: var(--verde-suave);
   padding: 28px 24px 32px;
   border-bottom: 2px solid var(--verde-borde);
+  border-radius: 0 0 var(--radio-xl) var(--radio-xl);
+  margin: 0 16px;
+  box-shadow: var(--sombra-suave);
+}
+
+header p {
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 14px 20px;
+  text-align: center;
+  background: #ffffff;
+  border: 2px solid var(--verde-borde);
+  border-radius: var(--radio-lg);
+  color: var(--texto-suave);
 }
 
 main {
@@ -36,7 +51,6 @@ main {
   padding: 24px;
 }
 
-/* Tarjeta base: secciones y mensajes */
 section,
 .tarjeta-mensaje {
   background: #ffffff;
@@ -48,9 +62,9 @@ section,
 section {
   margin-bottom: 24px;
   padding: 24px;
+  overflow: hidden;
 }
 
-/* Títulos redondeados (estilo pastilla) */
 .titulo-principal {
   margin: 0 0 14px;
   padding: 18px 28px;
@@ -84,11 +98,10 @@ section h3,
   font-size: 1.05rem;
   color: var(--verde-oscuro);
   background: var(--verde-fondo);
-  border-radius: var(--radio-md);
+  border-radius: var(--radio-pill);
   text-align: center;
 }
 
-/* Tablero: rejilla; tarjeta solo cuando aún no hay contenido */
 .tablero {
   display: grid;
   gap: 18px;
@@ -103,9 +116,7 @@ section h3,
   border: 2px dashed var(--verde-claro);
   border-radius: var(--radio-xl);
 }
-/*fin de la seccion de tablero*/
 
-/* Tarjetas dinámicas (mensajes, calendario, resumen) */
 .tarjeta-mensaje {
   padding: 22px;
   text-align: left;
@@ -135,6 +146,44 @@ button:hover {
   transform: translateY(-1px);
 }
 
+label {
+  display: inline-block;
+  margin-bottom: 6px;
+  padding: 6px 14px;
+  font-weight: 600;
+  color: var(--verde-oscuro);
+  background: var(--verde-fondo);
+  border-radius: var(--radio-pill);
+}
+
+input {
+  padding: 12px 16px;
+  border: 2px solid var(--verde-borde);
+  border-radius: var(--radio-lg);
+  width: 100%;
+  max-width: 320px;
+  background: var(--verde-suave);
+  color: var(--texto);
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--verde-medio);
+  box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.2);
+}
+
+#mensajeLogin {
+  margin-top: 16px;
+  padding: 14px 18px;
+  font-weight: 600;
+  background: var(--verde-fondo);
+  border: 2px solid var(--verde-claro);
+  border-radius: var(--radio-lg);
+  color: var(--verde-oscuro);
+}
+
 .etiqueta {
   display: inline-block;
   padding: 6px 14px;
@@ -156,5 +205,5 @@ button:hover {
   background: var(--verde-suave);
   border: 2px solid var(--verde-borde);
   padding: 16px;
-  border-radius: var(--radio-lg);
+  border-radius: var(--radio-xl);
 }
